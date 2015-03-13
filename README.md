@@ -6,7 +6,9 @@ This is a [Numerous](http://www.numerousapp.com/) API client, in PHP. You can re
 
 # Example
 
-`<?php
+``` php
+
+	<?php
 
 	require_once "Numerous.php";
 	
@@ -16,7 +18,7 @@ This is a [Numerous](http://www.numerousapp.com/) API client, in PHP. You can re
 	
 	$metrics =  $numerous->list_user_metrics("me")->metrics;`
 
-?>`
+```
 
 # Todo
 
