@@ -1,13 +1,17 @@
 <?php
 	require_once "Numerous.php";
 	
-	$numerous = new Numerous("nmrs_aCidzHX709iL");
+	$numerous = new Numerous("###your api key here###");
 	
-	$self = $numerous->get_user_self_info();
+	//$self = $numerous->get_user_self_info();
 	
-	$metrics =  $numerous->list_user_metrics("me")->metrics;
+	$metrics = $numerous->list_user_metrics("me")->metrics;
 	
-	var_dump($numerous->create_metric("sample label"));
+	//var_dump($metrics);
 	
-	//$numerous->cr
+	for($i = 0; $i < count($metrics); $i++){
+		if($metrics[$i]->label === "Step Counter"){
+			echo $metrics[$i]->value;
+		}
+	}
 ?>

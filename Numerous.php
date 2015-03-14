@@ -1,5 +1,7 @@
 <?php
-	// 这个是我自虐写的一个 Numerous Api 的 PHP 类。
+	// 这个是我自虐写的一个 Numerous Api 的 PHP 类.
+	// GET method works and I don't know what's wrong with the POST/PUT method. 
+	// email me iplus26@gmail.com if you know where the problem is. thx in advance.
 	
 	class Numerous {
 		
@@ -21,6 +23,8 @@
 		
 		// Metrics
 		
+		
+		// let the post method go...
 		public function create_metric($label, $fields = array(), $private = true, $writeable = false) {
 			// Merge supplied properties with default values
 			$data = array_merge(array(
@@ -31,6 +35,32 @@
 			$result = $this->post("/v2/metrics", $data);
 			return $result;          
 		}
+		
+		function post($url, array $data, $method = "POST", $endpoint = false) {
+			$url = self::API_BASE_URL . $url;
+			echo "POST " . $url . "\n";
+			
+			$data_string = json_encode($data);
+			
+			$headers = array(
+				'Accept: application/json',
+				'Content-Type: application/json',
+				'Content-Length: ' . strlen($data_string)
+			);
+			
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method); 
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			
+			$response = self::curl_exec($ch);
+			
+			return $response;
+		}
+		
+		
 		
 		function list_user_metrics($user_id){
 			return self::get("/v2/users/{$user_id}/metrics");
@@ -86,29 +116,7 @@
 			// delete
 		}
 		
-		function post($url, array $data, $method = "POST", $endpoint = false) {
-			$url = self::API_BASE_URL . $url;
-			echo "POST " . $url . "\n";
-			
-			$data_string = json_encode($data);
-			
-			$headers = array(
-				'Accept: application/json',
-				'Content-Type: application/json',
-				'Content-Length: ' . strlen($data_string)
-			);
-			
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method); 
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			
-			$response = self::curl_exec($ch);
-			
-			return $response;
-		}
+		
 		
 		function get($url) {
 			$url = self::API_BASE_URL . $url;

@@ -1,8 +1,8 @@
 # Overview
 
-This is a [Numerous](http://www.numerousapp.com/) API client, in PHP. You can retrieve and update data of Numerous, and do more interesting things with the Numerous app, using the API.
+This is a [Numerous API](http://docs.numerous.apiary.io/) client, in PHP. You can retrieve and update data of Numerous, and do more interesting things with the Numerous app, using the API.
 
-> Numerous is a mobile personal dashboard that allows you to follow and share the most important numbers in your life. The Numerous app is powered by the Numerous API.
+> [Numerous](http://numerousapp.com) is a mobile personal dashboard that allows you to follow and share the most important numbers in your life. The Numerous app is powered by the Numerous API.
 
 # Example
 
@@ -23,3 +23,5 @@ This is a [Numerous](http://www.numerousapp.com/) API client, in PHP. You can re
 # Todo
 
 I have just finish the GET method. The POST/PUT/DEL method will be done soon, and more methods will be added.
+
+日了狗了，POST 永远返回 string(0) 是几个鸟意思
