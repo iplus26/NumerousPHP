@@ -12,7 +12,7 @@ This is a [Numerous API](http://docs.numerous.apiary.io/) client, in PHP. You ca
 
 	require_once "Numerous.php";
 	
-	$numerous = new Numerous("nmrs_aCidzHX709iL");
+	$numerous = new Numerous("###your api key here###");
 	
 	$self = $numerous->get_user_self_info();
 	
@@ -22,6 +22,8 @@ This is a [Numerous API](http://docs.numerous.apiary.io/) client, in PHP. You ca
 
 # Todo
 
-I have just finish the GET method. The POST/PUT/DEL method will be done soon, and more methods will be added.
+The client is not complete, lacking Events, Interactions, Users, and Stream methods. 
 
-日了狗了，POST 永远返回 string(0) 是几个鸟意思
+I will finish it as soon as possible. 
+
+Also feel free to help me with that.
