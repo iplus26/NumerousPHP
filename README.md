@@ -27,3 +27,7 @@ The client is not complete, lacking Events, Interactions, Users, and Stream meth
 I will finish it as soon as possible. 
 
 Also feel free to help me with that.
+
+# License
+
+Based on [code by Gerwert Stevens](https://github.com/onderweg/numerous-php), licensed under MIT license.
